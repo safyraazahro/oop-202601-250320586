@@ -27,6 +27,7 @@ Bobot: Quiz 2%, Praktikum 1%.
 
 Jalankan: `bash scripts/uji.sh` (atau `.\scripts\uji.ps1` di PowerShell).
 
+
 ## Pengumpulan
 
 - Commit dengan format `minggu-02: ringkasan`.
