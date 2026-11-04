@@ -4,19 +4,39 @@ package id.ac.upb.asetpinjam.model;
 public class AlatLab extends Aset {
 
     // TODO minggu 3: field laboratorium dan tingkatRisiko.
-
+    private final String laboratorium;
+    private final TingkatRisiko tingkatRisiko;
+    
     public AlatLab(String kode, String nama, String laboratorium, TingkatRisiko tingkatRisiko) {
         super(kode, nama);
-        throw new UnsupportedOperationException("TODO minggu 3: konstruktor AlatLab");
+       
+        if (laboratorium == null || laboratorium.isBlank()) {
+            throw new IllegalArgumentException("Laboratorium aset berisi alat laboratorium tidak boleh kosong");
+        }
+        if (tingkatRisiko == null) {
+            throw new IllegalArgumentException("Tingkat risiko aset berisi alat laboratorium tidak boleh null");
+        }
+        this.laboratorium = laboratorium;
+        this.tingkatRisiko = tingkatRisiko;
     }
 
     public String getLaboratorium() {
-        throw new UnsupportedOperationException("TODO minggu 3");
+        return laboratorium;
     }
 
     public TingkatRisiko getTingkatRisiko() {
-        throw new UnsupportedOperationException("TODO minggu 3");
+        return tingkatRisiko;
+       
     }
 
     // TODO minggu 3: override getJenis(). Minggu 4: override hitungDenda(int).
+    @Override
+    public JenisAset getJenis() {
+        return JenisAset.ALAT_LAB;
+    }
+
+@Override
+    public long hitungDenda(int HariTerlambat) {
+            return 4L * super.hitungDenda(HariTerlambat);
+    }
 }
