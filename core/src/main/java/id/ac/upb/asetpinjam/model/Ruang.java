@@ -4,6 +4,19 @@ package id.ac.upb.asetpinjam.model;
 public class Ruang extends Aset {
 
     // TODO minggu 3: field kapasitas.
+    @Override
+public long hitungDenda(int hariTerlambat) {
+    if (hariTerlambat < 0) {
+        throw new IllegalArgumentException("Hari terlambat tidak boleh negatif");
+    }
+    if (hariTerlambat == 0) {
+        return 0L;
+    }
+    // Perhitungan denda untuk Ruang
+    return 7500L * hariTerlambat;
+}
+
+    // TODO minggu 3: field kapasitas.
     private final int kapasitas;
 
     public Ruang(String kode, String nama, int kapasitas) {
@@ -21,7 +34,8 @@ public class Ruang extends Aset {
 public JenisAset getJenis() {
     return JenisAset.RUANG;
 }
-    } 
+}
+    
 
     // TODO minggu 3: override getJenis(). Minggu 4: override hitungDenda(int).
 
